@@ -6,23 +6,20 @@ FSJS Project 2 - Data Pagination and Filtering
 //Selecting the elements for DOM
 const body = document.querySelector("body");
 const page = document.querySelector(".page");
-const header = document.querySelector(".header");
-const search = document.querySelector("#search");
-const submit = document.querySelector("#submit");
 
-//function `showPage` which will create elements and append them to display nine list items per page
-
+//function `showPage` which will display page of 9 students
 function showPage(dataList, page) {
   const startIndex = page * 9 - 9;
   const endIndex = page * 9;
-  // Selecting the list with the class "student-list" and assigning it's content to an empty string
+
+  // Selecting the ul element with the class "student-list" and assigning it's HTML content to an empty string
   const studentList = document.querySelector(".student-list");
   studentList.innerHTML = " ";
 
-  //Looping through the data array of objects, creating html elements that will then be appended to be displayed in studentList
+  //Looping through the array of data objects, creating html template literal and inserting the HTML into studentList (ul)
   for (let i = 0; i < dataList.length; i++) {
     if (i >= startIndex && i < endIndex) {
-      // Creating the HTML elements required to format the list items for studentList
+      // Creating the HTML template literal for studentList
       let html = `
             <li class="student-item cf">
                <div class="student-details">
@@ -34,7 +31,7 @@ function showPage(dataList, page) {
                <span class="date">Joined ${dataList[i].registered.date}</span>
                </div>
             </li>`;
-      // Adding the html elements to studentList
+      // Adding the html to studentList
       studentList.insertAdjacentHTML("beforeend", html);
     }
   }
@@ -45,7 +42,7 @@ function showPage(dataList, page) {
 function addPagination(dataList) {
   const numberOfPages = Math.ceil(dataList.length / 9);
 
-  //Selecting the ul element and creating link buttons with pagination
+  //Selecting the ul element and creating link buttons with page numbers
   const linkList = document.querySelector(".link-list");
   linkList.innerHTML = "";
   for (let i = 1; i <= numberOfPages; i++) {
@@ -72,6 +69,6 @@ function addPagination(dataList) {
   });
 }
 
-//call functions
+//call the two functions `showPage` and `addPagination`
 showPage(data, 1);
 addPagination(data);
