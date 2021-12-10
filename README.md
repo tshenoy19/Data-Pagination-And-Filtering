@@ -13,6 +13,9 @@ The function `addPagination` creates a link of buttons for the number of pages t
 While the `showPage` function will display the list items (9 per page), the `addPagination` function creates the numbered link buttons that lead to their corresponding pages.
 
 Credits:
+
 https://teamtreehouse.com/
+
 https://developer.mozilla.org/en-US/docs/Web/API/Event/target
+
 https://developer.mozilla.org/en-US/docs/Web/API/EventListener
